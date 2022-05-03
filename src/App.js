@@ -1,9 +1,9 @@
-import SearchBar from "./Components/SearchBar";
+import Layout from "./Components/Layout";
 
 function App() {
   return (
     <div>
-      <SearchBar />
+      <Layout />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import classes from "./SearchBar.module.css";
+import classes from "./Layout.module.css";
 import axios from "axios";
-function SearchBar() {
+import Card from "./Card";
+function Layout(props) {
   const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState([]);
 
   const searchChangeHandler = (event) => {
     setSearch(event.target.value);
@@ -16,7 +18,7 @@ function SearchBar() {
         q: search,
       },
     });
-    console.log(res.data);
+    setSearchData(res.data.data);
   };
   return (
     <div>
@@ -28,8 +30,13 @@ function SearchBar() {
         />
         <button type="submit">Submit</button>
       </form>
+      {searchData.map((element) => (
+        <div key={element.id}>
+          <Card image={element.images.fixed_height.url} />
+        </div>
+      ))}
     </div>
   );
 }
 
-export default SearchBar;
+export default Layout;
