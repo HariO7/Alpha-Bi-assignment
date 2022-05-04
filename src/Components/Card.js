@@ -1,8 +1,9 @@
 import React from "react";
+import "./Card.css";
 
 function Card(props) {
   return (
-    <div>
+    <div className="col-4">
       <img src={props.image} alt="..." />
     </div>
   );

@@ -7,15 +7,19 @@ function Paginate(props) {
   }
   return (
     <nav>
-      <ul>
+      <ul className="pagination pagination-sm justify-content-center border-0">
         {pageNo.map((number) => {
-          // add class for inactive
+          let classes = "page-item";
           if (number === props.currentPage) {
-            // add class for active
+            classes += "active";
           }
           return (
-            <li>
-              <a href="#" onClick={() => props.pageSelector(number)}>
+            <li className={classes}>
+              <a
+                href="#"
+                onClick={() => props.pageSelector(number)}
+                className="page-link"
+              >
                 {number}
               </a>
             </li>
